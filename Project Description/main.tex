@@ -1,0 +1,24 @@
+%------------------------
+% Project Description
+% Author : Adwait P Naik
+% Github : https://github.com/addy1997
+% License : MIT
+%------------------------
+\documentclass{article}
+\usepackage{blindtext}
+\usepackage{biblatex}
+\addbibresource{references.bib}
+\title{NeRF for high resolution view synthesis}
+\author{Adwait Naik}
+\date{June 30, 2022}
+
+\begin{document}
+\maketitle
+\section*{Overview (View Synthesis)}
+The task of novel view synthesis using a set of input views (of the scene) to recover a 3D scene representation is a long-standing problem in geometric computer vision. As described in the recent works \cite{dellaert2020neural}, \cite{huang2022hdr}, and \cite{li2022neural}, the \textbf{Neural Radiance Fields} (NeRF) has emerged as a compelling strategy for learning 3D objects and scenes from the input images to render novel views. \\ \newline Advancing further, \textbf{NeRF} has demonstrated impressive results in generating \textit{volumetric avatars}, \textit{3D reconstruction}, \textit{pose estimation}, etc. illustrated in \cite{park2021hypernerf}, and \cite{martin2021nerf} respectively. \\ \newline
+\textbf{Multilayer Perceptron} neural network is the core of \textit{NeRF} which is trained by sampling rays from all pixels of the training set images with the objective of minimizing the L2 loss between the predicted and ground truth ray color. As a result, the color and the density are obtained. In simple terms, the neural network is used to parameterize the scene's appearance.
+\section*{Motivation}
+As the neural network requires a huge amount of data, mainly consisting of a set of images of the scene from different view-points, it is necessary to deblur the images to avoid the artefacts arising in the rendered views. \\ \newline Defocus blur and motion blur are the two most commonly encountered types of degradation in the images. \textbf{Defocus blur} is a result of the image being out of focus. In simple terms, defocus refers to the sudden translation of the focus of the lens away from the detection object or surface. \textbf{Motion blur} is a result of camera shake. \cite{ma2022deblur} has proposed a phenomenal solution to tackle this phenomenon of blurry images. However, the approach is ineffective for \textbf{consistent blur}. \\ \newline
+Taking inspiration from the state-of-the-art algorithm proposed by \cite{ma2022deblur}, the main objective of this project is to investigate the problem of \textbf{consistent blur} and propose an effective approach to render the high-fidelity scene using \textbf{NeRF}.
+\printbibliography
+\end{document}
